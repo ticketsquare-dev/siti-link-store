@@ -8,3 +8,7 @@ QR 코드로 진입한 사용자가 기기별 스토어에서 Siti 앱을 다운
 pnpm install
 pnpm dev
 ```
+
+## Third-party licenses
+
+- Pretendard: `THIRD_PARTY_LICENSES/Pretendard-OFL.txt`
