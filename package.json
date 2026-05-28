@@ -1,0 +1,26 @@
+{
+  "name": "siti-link-store",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "next": "16.2.6",
+    "react": "19.2.6",
+    "react-dom": "19.2.6"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.11",
+    "@types/react": "19.2.15",
+    "@types/react-dom": "19.2.3",
+    "eslint": "^9.23.0",
+    "eslint-config-next": "^16.2.6",
+    "typescript": "^5"
+  },
+  "packageManager": "pnpm@10.15.0"
+}

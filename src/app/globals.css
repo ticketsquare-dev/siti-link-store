@@ -1,0 +1,79 @@
+:root {
+  --foreground: #161616;
+  --background: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+  margin: 0;
+  background: var(--background);
+  color: var(--foreground);
+  font-family:
+    var(--font-pretendard), -apple-system, BlinkMacSystemFont, "Segoe UI",
+    system-ui, sans-serif;
+}
+
+body {
+  min-height: 100dvh;
+}
+
+a {
+  color: inherit;
+}
+
+.download-page {
+  display: flex;
+  min-height: 100dvh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  padding: 32px 24px;
+}
+
+.siti-logo {
+  width: min(152px, 42vw);
+  height: auto;
+}
+
+.download-link {
+  display: inline-flex;
+  min-width: 200px;
+  min-height: 56px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  background: #000000;
+  color: #ffffff;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1;
+  padding: 0 28px;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.download-link:focus-visible {
+  outline: 3px solid rgb(0 0 0 / 28%);
+  outline-offset: 4px;
+}
+
+.download-link:active {
+  transform: translateY(1px);
+}
+
+@media (max-width: 380px) {
+  .download-page {
+    gap: 32px;
+  }
+
+  .download-link {
+    width: 100%;
+    max-width: 240px;
+  }
+}
