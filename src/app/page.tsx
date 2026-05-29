@@ -1,14 +1,20 @@
 import Image from "next/image";
 import { headers } from "next/headers";
+import { redirect } from "next/navigation";
 
 import DownloadLink from "./_components/DownloadLink";
-import { resolveStoreUrl } from "./storeLinks";
+import { resolveMobileStoreUrl, resolveStoreUrl } from "./storeLinks";
 
 export default async function HomePage() {
   const requestHeaders = await headers();
-  const initialStoreUrl = resolveStoreUrl(
-    requestHeaders.get("user-agent") ?? ""
-  );
+  const userAgent = requestHeaders.get("user-agent") ?? "";
+  const mobileStoreUrl = resolveMobileStoreUrl(userAgent);
+
+  if (mobileStoreUrl) {
+    redirect(mobileStoreUrl);
+  }
+
+  const initialStoreUrl = resolveStoreUrl(userAgent);
 
   return (
     <main className="download-page">

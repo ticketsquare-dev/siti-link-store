@@ -14,24 +14,40 @@ export function resolveStoreTarget(
   platform = "",
   maxTouchPoints = 0
 ) {
-  if (ANDROID_USER_AGENT_PATTERN.test(userAgent)) {
-    return {
-      webUrl: GOOGLE_PLAY_WEB_URL,
-    };
-  }
+  const mobileStoreUrl = resolveMobileStoreUrl(
+    userAgent,
+    platform,
+    maxTouchPoints
+  );
 
-  if (
-    IOS_USER_AGENT_PATTERN.test(userAgent) ||
-    (platform === "MacIntel" && maxTouchPoints > 1)
-  ) {
+  if (mobileStoreUrl) {
     return {
-      webUrl: APP_STORE_WEB_URL,
+      webUrl: mobileStoreUrl,
     };
   }
 
   return {
     webUrl: APP_STORE_WEB_URL,
   };
+}
+
+export function resolveMobileStoreUrl(
+  userAgent: string,
+  platform = "",
+  maxTouchPoints = 0
+) {
+  if (ANDROID_USER_AGENT_PATTERN.test(userAgent)) {
+    return GOOGLE_PLAY_WEB_URL;
+  }
+
+  if (
+    IOS_USER_AGENT_PATTERN.test(userAgent) ||
+    (platform === "MacIntel" && maxTouchPoints > 1)
+  ) {
+    return APP_STORE_WEB_URL;
+  }
+
+  return undefined;
 }
 
 export function resolveStoreUrl(
